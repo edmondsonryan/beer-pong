@@ -1,0 +1,284 @@
+/*
+** Colours
+*/
+
+$white: #fff;
+$jet: #36382E;
+$blue: #226CE0;
+$platinum: #E5E5E5;
+$lightblue: #5BC3EB;
+$tomato: #F06449;
+
+.bg-blue {
+	background: $blue;
+}
+
+.white {
+	color: $white;
+}
+
+/**
+* Text Transformers
+*/
+
+* {
+	font-family: 'Noto Sans', sans-serif;
+}
+
+$font-small: 12px;
+
+.font-small {
+	font-size: $font-small;
+}
+
+/*
+** Buttons
+*/
+
+.btn {
+	padding: 5px 8px;
+	&.btn-tomato {
+		background: $tomato;
+		color: $white;
+	}
+}
+
+/*
+** Main Styles
+*/
+
+.App {
+	height: 100vh;
+  	text-align: center;
+	.main {
+		height: calc(100vh - 5% - 45px);
+		max-height: calc(100vh - 5% - 45px);
+		overflow: scroll;
+		padding-bottom: 60px;
+	}
+}
+
+header {
+	text-align: left;
+	margin-bottom: 5%;
+	border-bottom: solid 1px $platinum;
+	background: $blue;
+	padding-top: 16px;
+	color: $white;
+	box-shadow: 0 5px 5px rgba($jet, 0.3);
+	border: 0;
+	button {
+		color: $blue;
+	}
+	h1 {
+		font-weight: 700;
+		margin: 0;
+		font-size: 20px;
+	}
+	img {
+		height: 25px;
+		width: 25px;
+		margin-right: 20px;
+	}
+	.top-nav {
+		padding-bottom: 16px;
+	}
+	.nav-tabs {
+		padding: 0;
+		text-align: center;
+		border: none;
+		display: flex;
+		list-style: none;
+		margin: 0;
+		text-transform: uppercase;
+		a {
+			text-decoration: none;
+			padding: 0 0 16px 0;
+			font-size: 14px;
+			font-weight: bold;
+			color: rgba($platinum, .5);
+			&.active {
+				color: $platinum;
+				border-bottom: $white solid 2px;
+			}
+		}
+	}
+}
+
+footer {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	background: $blue;
+	.nav-item {
+		color: $platinum;
+		padding: 12px 0;
+		text-decoration: none;
+		&:last-child {
+			border-right: none;
+		}
+		img {
+			opacity: .5;
+		}
+		span {
+			margin-top: 8px;
+			display: block;
+			text-align: center;
+			font-size: $font-small;
+			line-height: 1;
+			opacity: .5;
+		}
+		&.active {
+			img,
+			span {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.bg-image {
+	height: calc( (100vh - 160px - 24px - 48px - 50px ) /  2);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+	position: relative;
+	button {
+		bottom: 10px;
+		left: 10px;
+		position: absolute;
+		&.right {
+			left: auto;
+			right: 10px;
+		}
+	}
+}
+
+.icon {
+	height: 25px;
+	width: 25px;
+}
+
+.team-block {
+	display: flex;
+	margin-bottom: 30px;
+	text-align: left;
+	justify-content: space-between;
+
+	.team-img-wrap {
+		flex: 1.5;
+		.team-img {
+			background-position: 50%;
+			background-size: cover;
+			padding-bottom: 100%;
+			width: 100%;
+			border-radius: 50%;
+		}
+	}
+
+	h5 {
+		font-weight: bold;
+	}
+
+	.team-text {
+		flex: 2;
+	}
+
+	&.content-left {
+		.team-img-wrap {
+			margin-left: 20px;
+			flex-order: 2;
+			order: 2;
+		}
+	}
+
+	&.content-right {
+		.team-img-wrap {
+			margin-right: 20px;
+			flex-order: 1;
+			order: 1;
+		}
+		.team-text {
+			flex-order: 2;
+			order: 2;
+		}
+	}
+}
+
+/*
+** Standings Page
+*/
+.standings-table {
+	overflow-x: scroll;
+	padding-top: 25px;
+	margin-bottom: 25px;
+
+	/* width */
+	&::-webkit-scrollbar {
+	  width: 10px;
+	}
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+	  background: $platinum;
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+	  background: $blue;
+	}
+
+	.standings-row {
+		max-width: 1000vw;
+		width: auto;
+		align-items: center;
+		&:first-of-type {
+			.standings-cell {
+				text-orientation: vertical;
+				writing-mode: vertical-lr;
+				height: 130px;
+				justify-content: flex-end;
+				display: flex;
+				align-items: center;
+				border-right: solid 1px $platinum;
+				span {
+					transform: rotate(180deg);
+				}
+			}
+		}
+		.standings-cell {
+			font-size: 14px;
+			overflow: hidden;
+			flex: 0 0 15%;
+			padding: 12px 0;
+			text-align: center;
+			border-bottom: solid 1px $platinum;
+			border-right: solid 1px $platinum;
+			span {
+				white-space: nowrap;
+				display: inline-block;
+			}
+			&:nth-child(1) {
+				text-align: left;
+				flex: 0 0 150px;
+				span {
+					padding-right: -10px;
+				}
+			}
+			&:last-child {
+				background-color: $blue;
+				color: $white;
+				font-weight: bold;
+			}
+			&.blank {
+				background-color: $platinum;
+			}
+		}
+		&:last-child {
+			.standings-cell {
+				border-bottom: none;
+			}
+		}
+	}
+}
